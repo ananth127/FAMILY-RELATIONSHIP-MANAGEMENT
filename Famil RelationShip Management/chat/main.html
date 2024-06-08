@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Tree</title>
+<style>
+    .tree {
+        display: flex;
+        justify-content: center;
+    }
+    .person {
+        text-align: center;
+        margin: 10px;
+        border: 1px solid #000;
+        padding: 10px;
+        position: relative;
+    }
+    .connection {
+        position: absolute;
+        border-left: 1px solid #000;
+        height: 100%;
+        left: 50%;
+        top: 0;
+    }
+</style>
+</head>
+<body>
+<div class="tree">
+    <div class="person" id="John_Mary">
+        <h3>John & Mary Smith</h3>
+        <div class="connection"></div>
+    </div>
+    <div class="person" id="Michael">
+        <h3>Michael Smith</h3>
+        <div class="connection"></div>
+    </div>
+    <div class="person" id="Olivia">
+        <h3>Olivia</h3>
+        <div class="connection"></div>
+    </div>
+    <div class="person" id="Sophia">
+        <h3>Sophia Green</h3>
+        <div class="connection"></div>
+    </div>
+    <div class="person" id="Jennifer">
+        <h3>Jennifer Brown</h3>
+        <div class="connection"></div>
+    </div>
+    <div class="person" id="Emma">
+        <h3>Emma Brown</h3>
+        <div class="connection"></div>
+    </div>
+    <div class="person" id="Jacob">
+        <h3>Jacob (Great-Nephew)</h3>
+        <div class="connection"></div>
+    </div>
+</div>
+
+<script>
+    function connectPersons(person1, person2) {
+        const person1Element = document.getElementById(person1);
+        const person2Element = document.getElementById(person2);
+        const connection = document.createElement('div');
+        connection.classList.add('connection');
+        const x1 = person1Element.getBoundingClientRect().left + person1Element.offsetWidth / 2;
+        const x2 = person2Element.getBoundingClientRect().left + person2Element.offsetWidth / 2;
+        const y1 = person1Element.getBoundingClientRect().top + person1Element.offsetHeight / 2;
+        const y2 = person2Element.getBoundingClientRect().top + person2Element.offsetHeight / 2;
+        const angle = Math.atan2(y2 - y1, x2 - x1);
+        const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+        const scaleX = distance / connection.offsetWidth;
+        connection.style.transform = `rotate(${angle}rad) scaleX(${scaleX})`;
+        person1Element.appendChild(connection);
+    }
+    connectPersons('John_Mary', 'Michael');
+    connectPersons('Michael', 'Olivia');
+    connectPersons('Michael', 'Sophia');
+    connectPersons('Sophia', 'Jennifer');
+    connectPersons('Jennifer', 'Emma');
+    connectPersons('Olivia', 'Jacob');
+</script>
+</body>
+</html>
