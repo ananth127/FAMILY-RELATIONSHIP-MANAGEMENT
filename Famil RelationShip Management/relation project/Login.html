@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login Form</title>
+<style>
+    .bdy {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        margin: 0;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+    h2 {
+        margin-top: 0;
+        color: #333;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: #555;
+    }
+    input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .note {
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .links {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .links a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s;
+        display: block;
+        margin: 5px 0;
+    }
+    .links a:hover {
+        color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <div class="bdy">
+        <div class="container">
+    <h2>Login</h2>
+    <form action="login.php" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <div class="note">Note: This name is used temporarily to access the user. It could be removed. For now, users can use either ID or name to login. for reference use below users name in the family tree and using password as 123..             <br> Ex : name:ram    ;password:123</div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="links">
+        <a href="Forgotid.php">Forgot ID?</a>
+        <a href="forgotpass.php">Forgot Password?</a>
+    </div>
+    <div class="links">
+        <a href="New-user.php">Sign-up</a>
+    </div>
+    
+</div>
+</div>
+</body>
+<img src="familytree.png" width="97%" height="90%" alt="familytree">
+<footer><a style="font-family: 'Courier New', Courier, monospace; background-color: #f4f4f4;  border-radius: 4px; padding: 2px 4px; color: #c7254e; text-decoration: none;" href="https://see-through-headset.000webhostapp.com/data/FAMILY%20RELATIONSHIP%20MANAGEMENT.pdf">Copyright © 2024 Ananth(ananth127). All rights are reserved
+</a></footer>
+</html>
+new mysqli('localhost','id21263871_feedbackapp','Ajai@1107','id21263871_feedback');
