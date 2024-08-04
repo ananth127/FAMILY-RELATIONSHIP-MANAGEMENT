@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login Form</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to right, #00c6ff, #0072ff), url('background-image.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+    h2 {
+        margin-top: 0;
+        color: #0072ff; /* Bright blue */
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: #333;
+    }
+    .input-field {
+        padding: 12px;
+        border: 2px solid #0072ff; /* Bright blue border */
+        border-radius: 10px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+    .input-field:focus {
+        border-color: #0056b3; /* Darker blue on focus */
+        outline: none;
+    }
+    .note {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    button {
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background-color: #0072ff; /* Bright blue background */
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: translateY(-2px);
+    }
+    .links {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .links a {
+        color: #0072ff; /* Bright blue */
+        text-decoration: none;
+        display: block;
+        margin: 5px 0;
+        transition: color 0.3s;
+    }
+    .links a:hover {
+        color: #0056b3; /* Darker blue on hover */
+    }
+    footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 12px;
+    }
+    footer a {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f4f4f4;
+        border-radius: 4px;
+        padding: 4px 8px;
+        color: #c7254e; /* Red color */
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    footer a:hover {
+        color: #a94442; /* Darker red on hover */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        .input-field {
+            padding: 10px;
+            font-size: 15px;
+        }
+        button {
+            padding: 10px;
+            font-size: 15px;
+        }
+        .note {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            background-position: center;
+            background-size: cover;
+        }
+        .container {
+            padding: 15px;
+            width: 95%;
+        }
+        h2 {
+            font-size: 22px;
+        }
+        .input-field {
+            padding: 8px;
+            font-size: 14px;
+        }
+        button {
+            padding: 8px;
+            font-size: 14px;
+        }
+        .note {
+            font-size: 12px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <label for="id">ID:</label>
+            <input class="input-field" type="text" id="id" name="id" placeholder="Enter your ID">
+            <label for="name">Name:</label>
+            <input class="input-field" type="text" id="name" name="name" placeholder="Enter your Name">
+            <div class="note">Note: This name is used temporarily to access the user. It could be removed. For now, users can use either ID or name to login. For reference, use below users' names in the family tree and use the password '123'.<br>Ex: name: ram; password: 123</div>
+            <label for="password">Password:</label>
+            <input class="input-field" type="password" id="password" name="password" required placeholder="Enter your Password">
+            <div style="margin-top: 10px;">
+                <label for="showPassword">
+                    <input type="checkbox" id="showPassword"> Show password
+                </label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="links">
+            <a href="Forgotid.php">Forgot ID?</a>
+            <a href="forgotpass.php">Forgot Password?</a>
+            <a href="New-user.php">Sign-up</a>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("showPassword").addEventListener("change", function() {
+            var passwordInput = document.getElementById("password");
+            passwordInput.type = this.checked ? "text" : "password";
+        });
+    </script>
+    <footer>
+        <br>
+         </footer>
+</body>
+</html>

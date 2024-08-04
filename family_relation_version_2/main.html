@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSB Engineering College | Feedback</title>
+    <style>
+        /* Add CSS styles here */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #00a2ff;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .subheader {
+            text-align: center;
+            font-size: 18px;
+            margin-top: -10px;
+        }
+
+        .link-button {
+            display: inline-block;
+            background-color: #00a2ff;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .link-button:hover {
+            background-color: #0077c0;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+        }
+
+        .form {
+            margin-top: 10px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+       
+
+        .feedback-message {
+            margin-top: 10px;
+            color: #00a2ff;
+        }
+
+        .submit-button {
+            background-color: #00a2ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #0077c0;
+        }
+        .feedback-form {
+            display: inline;
+            width: 20px;
+            margin: 0 auto;   
+        }
+
+        .stars {
+            font-size: 30px;
+            cursor: pointer;
+            color: #F5DBD6;
+            border:1px solid black;
+            display: inline;
+        }
+
+        .stars:hover {
+            border:1px solid black;
+            color: orange;
+        }
+
+        .selected {
+            border:1px solid black;
+            
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="vsbe.jpg" width="100%" alt="logo">
+        </div>
+        <div class="subheader">
+            <p><a class="link-button" href="https://www.vsbec.com/">Visit College Website</a></p>
+        </div>
+        <div class="section">
+            <h2 class="section-title">AI PAPER PRESENTATION</h2>
+            <div class="game">
+                <p><a class="link-button" href="https://docs.google.com/presentation/d/1UBz7V8bMnolqJ5y2icJge5_UAX_UG_FG/edit?usp=sharing&ouid=107667862258251503028&rtpof=true&sd=true">VIEW</a></p>
+            </div>
+            
+        </div>
+        <div class="section">
+            <h2 class="section-title">IT Department</h2>
+            <p><a class="link-button" href="https://zoometric-crystal.000webhostapp.com/">Visit IT Department Website</a></p>
+            <p><a class="link-button" href="https://www.youtube.com/@VSBECIT">Visit IT Department YouTube Channel</a></p>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Space Game</h2>
+            <div class="game">
+                <p><a class="link-button" href="https://zoometric-crystal.000webhostapp.com/spacegame.html">Play Now</a></p>
+            </div>
+            
+        </div>
+        <div class="section">
+            <h2 class="section-title">Feedback Form</h2>
+            <form class="form" action="feedback.php" method="post">
+                <label class="form-label" for="name">Name:</label>
+                <input class="form-input" type="text" name="name" id="name" required>
+
+                <label class="form-label" for="school">School:</label>
+                <input class="form-input" type="text" name="school" id="school" required>
+
+                <label class="form-label" for="feedback">Feedback:</label>
+                <input class="form-input" type="text" name="feedback" id="feedback" required>
+
+                <div class="feedback-form">
+                        <h4>Rate Your Experience:</h4>
+                        <div class="stars" name="rating" data-star="1">&#9733;</div>
+                        <div class="stars" name="rating" data-star="2">&#9733;</div>
+                        <div class="stars" name="rating" data-star="3">&#9733;</div>
+                        <div class="stars" name="rating" data-star="4">&#9733;</div>
+                        <div class="stars" name="rating" data-star="5">&#9733;</div>
+                        <input type="hidden" id="rating" name="rating" value="0">
+                        <div id="feedback-message">Please select a star rating.</div><br>
+                        <button type="submit">Submit</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for star rating
+        const stars = document.querySelectorAll(".stars");
+
+        stars.forEach(star => {
+            star.addEventListener("click", () => {
+                const rating = parseInt(star.getAttribute("data-star"));
+                document.getElementById("rating").value = rating;
+
+                // Provide feedback based on the selected rating
+                document.getElementById("feedback-message").innerHTML = `You rated us ${rating} stars. Thank you!`;
+
+                // Update star colors
+                stars.forEach(s => {
+                    const starRating = parseInt(s.getAttribute("data-star"));
+                    s.classList.toggle("selected", starRating <= rating);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

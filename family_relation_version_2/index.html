@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>college | web</title>
+</head>
+<body>
+    <form action="feedback.php" method="post">
+        <div class="clgname">
+            <center>
+                <h2>VSB ENGINEERING COLLEGE, Karur
+                    <br>
+                    <span> (An Autonomous Institution)</span>
+                </h2>
+            </center>
+        </div>
+        <div class="collegeweb">
+            <h3>College Website!</h3>
+            <a href="https://www.vsbec.com/"><button>Click here</button></a>
+            <div class="dept">
+                <h3>IT department website! <img src="" alt=""> </h3>
+                <a href="https://zoometric-crystal.000webhostapp.com/"><button>Click here</button></a>
+            </div>
+            <h1>Games</h1>
+            <div class="spacegame">
+                <h3>Space Game! <img src="" alt=""> </h3>
+                <a href="https://zoometric-crystal.000webhostapp.com/spacegame.html"><button>Click here</button></a>
+            </div>
+            <div class="smashkarts">
+                <h3>Smashkarts <img src="" alt=""> </h3>
+                <a href="https://smashkarts.io/"><button>Click here</button></a>
+            </div>
+            <div class="utube">
+                <h3>IT department YouTube channel! </h3>
+                <a href="https://www.youtube.com/@VSBECIT"><button>Click here</button></a>
+            </div>
+            <br>
+            <br>
+            <center>
+                <div class="formitem">
+                    <div>
+                        <h3>Kindly give your feedback to us!</h3>
+                        <table>
+    <tr>
+        <td><label for="name">Name:</label></td>
+        <td><input type="text" name="name" id="name"  required></td>
+    </tr>
+    <tr>
+        <td><label for="school">School:</label></td>
+        <td><input type="text" name="school" id="school" requierd></td>
+    </tr>
+    <tr>
+        <td><label for="feedback">Feedback:</label></td>
+        <td><input type="text" name="feedback" id="feedback"  required></td>
+    </tr>
+</table>
+
+                    </div>
+                    <div class="feedback-form">
+                        <h4>Rate Your Experience:</h4>
+                        <div class="stars" name="rating" data-star="1">&#9733;</div>
+                        <div class="stars" name="rating" data-star="2">&#9733;</div>
+                        <div class="stars" name="rating" data-star="3">&#9733;</div>
+                        <div class="stars" name="rating" data-star="4">&#9733;</div>
+                        <div class="stars" name="rating" data-star="5">&#9733;</div>
+                        <input type="hidden" id="rating" name="rating" value="0">
+                        <div id="feedback-message">Please select a star rating.</div><br>
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </center>
+        </form>
+    </form>
+    <br><br>
+    <form action="idcheck.php" method="post">
+        <br><br><br><br><br><br>
+        <label for="id">Enter id:</label>
+        
+        <input type="password" name="id" id="id" placeholder=""><br><br>
+        <button type="submit">Submit</button><br><br><br><br><br><br><br><br><br><br><br><br>
+    </form>
+
+    <script>
+        // JavaScript for star rating
+        const stars = document.querySelectorAll(".stars");
+
+        stars.forEach(star => {
+            star.addEventListener("click", () => {
+                const rating = parseInt(star.getAttribute("data-star"));
+                document.getElementById("rating").value = rating;
+
+                // Provide feedback based on the selected rating
+                document.getElementById("feedback-message").innerHTML = `You rated us ${rating} stars. Thank you!`;
+
+                // Update star colors
+                stars.forEach(s => {
+                    const starRating = parseInt(s.getAttribute("data-star"));
+                    s.classList.toggle("selected", starRating <= rating);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+
+        .formitem {
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 80%;
+            align-content: center;
+            border: solid;
+            padding-left: 10px;
+            position: center;
+            border-width: 2px;
+            border-radius: 5px;
+        }
+
+        span {
+            font-size: .9rem;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .clgname {
+            padding: 10px;
+            display: contents;
+        }
+
+        .collegeweb {
+            font-size: .9rem;
+        }
+
+        .dept {
+            font-size: .9rem;
+        }
+
+        .feedback {
+            font-size: .9rem;
+        }
+
+        .feedback h4 {
+            font-size: .9rem;
+            padding-top: .2px;
+        }
+
+        button {
+            align-items: center;
+            margin-left: 45px;
+            border-radius: .5rem;
+            font-size: .9rem;
+            font-style: bold;
+            padding: .2rem .3rem;
+            background-color: #00a2ff;
+        }
+
+        .feedback-form {
+            display: inline;
+            width: 20px;
+            margin: 0 auto;
+        }
+
+        .stars {
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+            display: inline;
+        }
+
+        .stars:hover {
+            color: orange;
+        }
+
+        .selected {
+            color: orange;
+        }
+    </style>
+</body>
+</html>
